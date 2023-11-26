@@ -9,8 +9,7 @@ pipeline {
           curl --version
 
           pwd
-          git clone https://github.com/virenvala/rules-repository
-          ls -l ./rules-repository
+          ls -l
 
         '''
       }
