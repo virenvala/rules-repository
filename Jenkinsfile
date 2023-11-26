@@ -8,7 +8,10 @@ pipeline {
           git --version
           curl --version
 
-          git https://github.com/virenvala/rules-repository
+          pwd
+          git clone https://github.com/virenvala/rules-repository
+          ls -l ./rules-repository
+
         '''
       }
     }
