@@ -10,7 +10,8 @@ pipeline {
 
           pwd
           ls -l
-
+          git diff --name-only HEAD HEAD~1 > diff.txt
+          cat diff.txt
         '''
       }
     }
