@@ -7,6 +7,8 @@ pipeline {
           node --version
           git --version
           curl --version
+
+          git https://github.com/virenvala/rules-repository
         '''
       }
     }
