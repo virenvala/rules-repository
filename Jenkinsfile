@@ -7,6 +7,12 @@ pipeline {
   stages {
     stage('Find Updates') {
       steps {
+        withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'TEST_PRIVATE_KEY', \
+                                                             keyFileVariable: 'TEST_PRIVATE_KEY_FILE')]) {
+          //
+          sh 'echo Private key is $TEST_PRIVATE_KEY_FILE'
+          sh 'node app.js' 
+        }
         sh '''
           git diff --name-only HEAD HEAD~1 > diff.txt
           echo Cred user is $TEST_CREDS_USR
