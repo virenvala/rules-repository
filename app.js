@@ -13,7 +13,7 @@ exec(`ps`, (err, stdout, stderr) => {
    //console.log(`stderr: ${stderr}`);
         console.log(git_diff);
         console.log(process.env.TEST_CREDS_PSW == 'test1234')
-        console.log(process.env.TEST_PRIVATE_KEY_PSW)
+        console.log(process.env.TEST_PRIVATE_KEY_USR)
   }
 });
 console.log(git_diff);

@@ -10,7 +10,7 @@ pipeline {
         sh '''
           git diff --name-only HEAD HEAD~1 > diff.txt
           echo Cred user is $TEST_CREDS_USR
-          echo Private key is $TEST_PRIVATE_KEY
+          echo Private key is $TEST_PRIVATE_KEY_USR
           node app.js
         '''
       }
