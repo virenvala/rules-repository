@@ -23,7 +23,7 @@ exec(`ps`, (err, stdout, stderr) => {
                 console.error(err);
                 return;
             }
-            console.log(data);
+            console.log(data.toString());
         });
     }
 });
