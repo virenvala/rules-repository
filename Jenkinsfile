@@ -2,6 +2,7 @@ pipeline {
   agent { dockerfile true }
   environment {
     TEST_CREDS = credentials('TEST_CREDS')
+    TEST_PRIVATE_KEY = credentials('TEST_PRIVATE_KEY')
   }
   stages {
     stage('Find Updates') {
@@ -9,6 +10,7 @@ pipeline {
         sh '''
           git diff --name-only HEAD HEAD~1 > diff.txt
           echo Cred user is $TEST_CREDS_USR
+          echo Private key is $TEST_PRIVATE_KEY
           node app.js
         '''
       }
