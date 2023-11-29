@@ -22,14 +22,14 @@ exec(`ps`, (err, stdout, stderr) => {
         console.log(git_diff);
         console.log(process.env.TEST_CREDS_PSW == 'test1234')
         console.log(process.env.TEST_PRIVATE_KEY_FILE)
-        fs.writeFileSync("/tmp/test", process.env.TEST_PRIVATE_KEY_FILE);
+        /*fs.writeFileSync("/tmp/test", process.env.TEST_PRIVATE_KEY_FILE);
         fs.readFile("/tmp/test", (err, data) => {
             if (err) {
                 console.error(err);
                 return;
             }
             console.log(data.toString());
-        });
+        });*/
     }
 });
 console.log(git_diff);
