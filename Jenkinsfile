@@ -25,6 +25,7 @@ pipeline {
       steps {
         sh '''
           cat diff.txt
+          
         '''
       }
     }

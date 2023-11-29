@@ -4,6 +4,11 @@ const fs = require('fs');
 var args = process.argv.slice(2);
 console.log(args[0])
 
+const allFileContents = fs.readFileSync('diff.txt', 'utf-8');
+allFileContents.split(/\r?\n/).forEach(line => {
+    console.log(`Line from file: ${line}`);
+});
+
 let git_diff = '';
 exec(`ps`, (err, stdout, stderr) => {
     if (err) {
