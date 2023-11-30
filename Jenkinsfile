@@ -11,7 +11,7 @@ pipeline {
                                                              keyFileVariable: 'TEST_PRIVATE_KEY_FILE')]) {
           //
           sh 'echo Private key is $TEST_PRIVATE_KEY_FILE'
-          sh 'node spawn.js' 
+          sh 'node spawn2.js' 
         }
         sh '''
           git diff --name-only HEAD HEAD~1 > diff.txt
