@@ -1,6 +1,6 @@
-const { exec } = require('child_process');
+const { execSync } = require('child_process');
 
-exec(`ps -ef | grep jenkins`, (err, stdout, stderr) => {
+let sts = execSync(`ps -ef | grep jenkins`, (err, stdout, stderr) => {
     if (err) {
         //some err occurred
         console.error(err)
@@ -9,3 +9,4 @@ exec(`ps -ef | grep jenkins`, (err, stdout, stderr) => {
         console.log(stdout);
     }
 });
+console.log("Status: " + sts);
