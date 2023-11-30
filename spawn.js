@@ -1,5 +1,5 @@
 const { spawnSync } = require('node:child_process');
-const ls = spawnSync('ls', ['-lh', '/usrr']);
+const ls = spawnSync('ls', ['-lh', '/usr']);
 
 /*ls.stdout.on('data', (data) => {
   console.log(`stdout: ${data}`);
