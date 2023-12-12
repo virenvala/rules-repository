@@ -6,9 +6,9 @@ var args = process.argv.slice(2);
 //console.log(args[0])
 
 let instances_to_be_processed = [];
-const allFileContents = fs.readFileSync('diff.txt', 'utf-8');
-allFileContents.split(/\r?\n/).forEach(line => {
-    console.log(`Line from file: ${line}`);
+const updated_files = fs.readFileSync('diff.txt', 'utf-8');
+updated_files.split(/\r?\n/).forEach(line => {
+    console.log(`File: ${line}`);
     if (line.endsWith('.rules') || line.endsWith('.lookup')) {
         // either .rules or .lookup files updated
         // find the process name from the parent folder
@@ -38,13 +38,8 @@ allFileContents.split(/\r?\n/).forEach(line => {
 
             // backup
             try {
-                let sts = execSync(`scp 
-                        -o StrictHostKeyChecking=no 
-                        -o UserKnownHostsFile=/dev/null 
-                        -i ${process.env.PRIVATE_KEY} 
-                        ${line} 
-                        ${user}@${backup_server}:${rules_location}`).toString();
-                console.log(sts);
+                let scp = execSync(`scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ${process.env.PRIVATE_KEY} ${line} ${user}@${backup_server}:${rules_location}`).toString();
+                console.log(scp);
             } catch(err) {
                 console.log(err.status);
             }
