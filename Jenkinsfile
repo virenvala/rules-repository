@@ -28,7 +28,7 @@ pipeline {
     stage('Reload Process') {
       steps {
         sh '''
-          node reload_rule.js
+          node node/reload_rule.js
         '''
       }
     }
