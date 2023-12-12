@@ -15,14 +15,7 @@ allFileContents.split(/\r?\n/).forEach(line => {
 
     // for the instance, invoke check syntax script on remote server
     try {
-        let sts = execSync(`ssh 
-                -o StrictHostKeyChecking=no 
-                -o UserKnownHostsFile=/dev/null 
-                -i ${process.env.PRIVATE_KEY} 
-                | 
-                /path/to/syntax/check/script 
-                -server ${server}
-                ${line}`).toString();
+        let sts = execSync(`ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ${process.env.PRIVATE_KEY} | /path/to/syntax/check/script -server ${server} ${line}`).toString();
         console.log(sts);
     } catch(err) {
         console.log(err.status);

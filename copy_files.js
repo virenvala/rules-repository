@@ -30,12 +30,7 @@ allFileContents.split(/\r?\n/).forEach(line => {
 
             // primary
             try {
-                let sts = execSync(`scp 
-                        -o StrictHostKeyChecking=no 
-                        -o UserKnownHostsFile=/dev/null 
-                        -i ${process.env.PRIVATE_KEY} 
-                        ${line} 
-                        ${user}@${primary_server}:${rules_location}`).toString();
+                let sts = execSync(`scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ${process.env.PRIVATE_KEY} ${line} ${user}@${primary_server}:${rules_location}`).toString();
                 console.log(sts);
             } catch(err) {
                 console.log(err.status);
